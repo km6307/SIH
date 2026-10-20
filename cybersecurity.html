@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple guide to cybersecurity, common security types, and safer online habits.">
+    <title>CyberSafe | Cybersecurity Guide</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --navy: #10243a;
+            --navy-light: #193652;
+            --teal: #12b8a6;
+            --teal-dark: #087f78;
+            --ink: #1d2b3a;
+            --muted: #607184;
+            --paper: #f5f8fb;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .brand-row {
+            width: min(1120px, calc(100% - 40px));
+            min-height: 104px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-mark {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            background: rgba(18, 184, 166, 0.13);
+            color: var(--teal);
+        }
+
+        .brand-mark svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .brand-name {
+            margin: 0;
+            font-size: 1.65rem;
+            line-height: 1.2;
+        }
+
+        .brand-tagline {
+            margin: 5px 0 0;
+            color: #b7c8d8;
+            font-size: 0.92rem;
+        }
+
+        .main-nav {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--navy-light);
+        }
+
+        .nav-inner {
+            width: min(1120px, calc(100% - 40px));
+            min-height: 58px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a,
+        .phone-link {
+            padding: 9px 12px;
+            border-radius: 8px;
+            color: #eaf2f8;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: background-color 160ms ease, color 160ms ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible,
+        .phone-link:hover,
+        .phone-link:focus-visible {
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .phone-link {
+            flex: 0 0 auto;
+            color: #9ce8df;
+            font-weight: 700;
+        }
+
+        .hero {
+            padding: 76px 20px 82px;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(18, 184, 166, 0.2), transparent 27%),
+                linear-gradient(135deg, var(--navy), #183b56);
+            color: var(--white);
+        }
+
+        .hero-inner {
+            width: min(1120px, 100%);
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: #75e1d4;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .hero h2 {
+            max-width: 720px;
+            margin: 0;
+            font-size: clamp(2.35rem, 6vw, 4.4rem);
+            line-height: 1.08;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-copy {
+            max-width: 650px;
+            margin: 20px 0 0;
+            color: #ccdae6;
+            font-size: 1.08rem;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 12px 19px;
+            border-radius: 9px;
+            background: var(--teal);
+            color: #082d35;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .hero-button:hover,
+        .hero-button:focus-visible {
+            background: #4cdbc9;
+        }
+
+        main {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .content-section {
+            padding: 66px 0;
+            border-bottom: 1px solid #dfe7ee;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            color: var(--navy);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            line-height: 1.2;
+        }
+
+        .section-heading p {
+            margin: 12px 0 0;
+            color: var(--muted);
+        }
+
+        .about-panel {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .about-copy,
+        .highlight-card,
+        .info-card,
+        .rule-card {
+            border: 1px solid #e0e8ef;
+            border-radius: 16px;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(16, 36, 58, 0.045);
+        }
+
+        .about-copy {
+            padding: 28px;
+        }
+
+        .about-copy p {
+            margin: 0 0 14px;
+            color: var(--muted);
+        }
+
+        .about-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-card {
+            padding: 28px;
+            background: #e6f7f4;
+        }
+
+        .highlight-card strong {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--teal-dark);
+            font-size: 1.05rem;
+        }
+
+        .highlight-card p {
+            margin: 0;
+            color: #315c60;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .info-card {
+            padding: 24px;
+        }
+
+        .card-number {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 16px;
+            border-radius: 11px;
+            background: #e4f7f4;
+            color: var(--teal-dark);
+            font-weight: 700;
+        }
+
+        .info-card h3,
+        .rule-card h3 {
+            margin: 0 0 9px;
+            color: var(--navy);
+            font-size: 1.1rem;
+        }
+
+        .info-card p,
+        .rule-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            counter-reset: safety-rule;
+        }
+
+        .rule-card {
+            position: relative;
+            min-height: 132px;
+            padding: 22px 22px 22px 68px;
+            counter-increment: safety-rule;
+        }
+
+        .rule-card::before {
+            content: counter(safety-rule, decimal-leading-zero);
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            color: var(--teal-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .contact-section {
+            padding: 42px 30px;
+            border-radius: 18px;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            margin: 0;
+            font-size: clamp(1.65rem, 4vw, 2.2rem);
+        }
+
+        .contact-section p {
+            margin: 10px 0 0;
+            color: #c4d4e1;
+        }
+
+        .contact-number {
+            display: inline-block;
+            margin-top: 18px;
+            color: #7fe2d6;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-number:hover,
+        .contact-number:focus-visible {
+            color: var(--white);
+        }
+
+        .site-footer {
+            margin-top: 66px;
+            padding: 25px 20px;
+            background: #0b1b2b;
+            color: #b7c8d8;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 760px) {
+            .nav-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 4px;
+                padding: 10px 0;
+            }
+
+            .nav-links {
+                gap: 2px;
+            }
+
+            .nav-links a,
+            .phone-link {
+                padding: 8px 9px;
+                font-size: 0.88rem;
+            }
+
+            .phone-link {
+                padding-left: 9px;
+            }
+
+            .about-panel,
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
+                padding: 52px 0;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .brand-row,
+            .nav-inner,
+            main {
+                width: min(100% - 28px, 1120px);
+            }
+
+            .brand-row {
+                min-height: 88px;
+            }
+
+            .brand-name {
+                font-size: 1.4rem;
+            }
+
+            .brand-tagline {
+                font-size: 0.82rem;
+            }
+
+            .brand-mark {
+                width: 48px;
+                height: 48px;
+            }
+
+            .hero {
+                padding: 58px 14px 64px;
+            }
+
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                padding: 34px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="brand-row">
+            <a class="brand-mark" href="#home" aria-label="CyberSafe home">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <path d="M16 3.5 27 8v7.2c0 7-4.7 11.3-11 13.3C9.7 26.5 5 22.2 5 15.2V8l11-4.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+                    <path d="m11.5 15.8 3 3 6.2-6.4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <div>
+                <h1 class="brand-name">CyberSafe</h1>
+                <p class="brand-tagline">Simple steps for a safer digital life</p>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <div class="nav-inner">
+                <div class="nav-links">
+                    <a href="#about">About Cybersecurity</a>
+                    <a href="#types">Types of Cybersecurity</a>
+                    <a href="#rules">Cybersecurity Rules</a>
+                </div>
+                <a class="phone-link" href="#contact" style="color: #e5da12;font-size:20px">Dial:1930</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-inner">
+            <p class="eyebrow">Stay aware. Stay secure.</p>
+            <h2>Your safety matters in the digital world.</h2>
+            <p class="hero-copy">
+                Learn the basics of cybersecurity and build everyday habits that help protect your
+                devices, personal information, and online accounts.
+            </p>
+            <a class="hero-button" href="#rules">Explore safety rules</a>
+        </div>
+    </section>
+
+    <main>
+        <section class="content-section" id="about">
+            <div class="section-heading">
+                <p class="eyebrow">The basics</p>
+                <h2>About Cybersecurity</h2>
+                <p>Cybersecurity helps keep our digital lives private, safe, and reliable.</p>
+            </div>
+            <div class="about-panel">
+                <div class="about-copy">
+                    <p>
+                        Cybersecurity is the practice of protecting computers, phones, networks, and
+                        data from unauthorised access or damage. It matters whenever we use the
+                        internet, from sending a message to shopping or studying online.
+                    </p>
+                    <p>
+                        No single tool can prevent every threat. Strong passwords, regular updates,
+                        and a moment of care before clicking a link all work together to reduce risk.
+                    </p>
+                </div>
+                <aside class="highlight-card">
+                    <strong>A good place to start</strong>
+                    <p>
+                        Keep your software updated, use a different strong password for each
+                        important account, and turn on two-step verification when it is available.
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="content-section" id="types">
+            <div class="section-heading">
+                <p class="eyebrow">Different layers of protection</p>
+                <h2>Types of Cybersecurity</h2>
+                <p>These areas work together to protect people, information, and technology.</p>
+            </div>
+            <div class="card-grid">
+                <article class="info-card">
+                    <span class="card-number">01</span>
+                    <h3>Network Security</h3>
+                    <p>Helps protect connected devices and networks from intruders and harmful traffic.</p>
+                </article>
+                <article class="info-card">
+                    <span class="card-number">02</span>
+                    <h3>Data Security</h3>
+                    <p>Protects personal and business information from being exposed, changed, or lost.</p>
+                </article>
+                <article class="info-card">
+                    <span class="card-number">03</span>
+                    <h3>Device Security</h3>
+                    <p>Keeps computers and phones safer with updates, security settings, and trusted apps.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section" id="rules">
+            <div class="section-heading">
+                <p class="eyebrow">Everyday habits</p>
+                <h2>Cybersecurity Rules</h2>
+                <p>Small, consistent choices can make a big difference to your online safety.</p>
+            </div>
+            <div class="rules-grid">
+                <article class="rule-card">
+                    <h3>Use strong, unique passwords</h3>
+                    <p>Make passwords hard to guess and do not reuse the same one across accounts.</p>
+                </article>
+                <article class="rule-card">
+                    <h3>Think before you click</h3>
+                    <p>Check links and sender details carefully, especially in unexpected messages.</p>
+                </article>
+                <article class="rule-card">
+                    <h3>Turn on two-step verification</h3>
+                    <p>Add another sign-in check to important accounts whenever the option is available.</p>
+                </article>
+                <article class="rule-card">
+                    <h3>Keep devices up to date</h3>
+                    <p>Install updates for your operating system, browser, and apps from trusted sources.</p>
+                </article>
+                <article class="rule-card">
+                    <h3>Be careful on public Wi-Fi</h3>
+                    <p>Avoid entering sensitive information on networks you do not trust.</p>
+                </article>
+                <article class="rule-card">
+                    <h3>Back up important files</h3>
+                    <p>Keep a separate, up-to-date copy of files you would not want to lose.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <h2>Need to get in touch?</h2>
+            <p>Any victim of financial cyber fraud can dial the helpline number.</p>
+            <a class="contact-number" href="tel:+910000000000">011-23438207/08</a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 CyberSafe. Stay informed and stay safe online.</p>
+    </footer>
+</body>
+</html>

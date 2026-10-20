@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student's Feedback Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Basic Information Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #34495e;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #3498db;
+        }
+
+        /* Feedback Table Styling */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: #fff;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 12px 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Custom Radio Buttons styling inside table */
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #3498db;
+        }
+
+        .sub-question {
+            padding-left: 25px;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Submit Button */
+        .btn-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #219653;
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Student's Feedback Form</h1>
+    <div class="subtitle">(To be used by institutions)</div>
+
+    <form id="feedbackForm">
+    
+        <div class="info-grid">
+            <div class="form-group">
+                <label for="academicYear">Academic Year:</label>
+                <select id="academicYear" required>
+                    <option value="" disabled selected>Select Academic Year</option>
+                    <option value="2024-25">2024-25</option>
+                    <option value="2025-26">2025-26</option>
+                    <option value="2026-27">2026-27</option>
+                    <option value="2027-28">2027-28</option>
+                    <option value="2028-29">2028-29</option>
+                    <option value="2029-30">2029-30</option>
+                    <option value="2030-31">2030-31</option>
+                    <option value="2031-32">2031-32</option>
+                    <option value="2032-33">2032-33</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <select id="subject" required>
+                    <option value="" disabled selected>Select Subject</option>
+                    <option value="DSA">DSA</option>
+                    <option value="Computer Network">Computer Network</option>
+                    <option value="MT">MT</option>
+                    <option value="Java">Java</option>
+                    <option value="DS using C">DS using C</option>
+                    <option value="IS">IS</option>
+                    <option value="IOT">IOT</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="facultyName">Name of the Faculty:</label>
+                <input type="text" id="facultyName" placeholder="Enter Faculty Name" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" id="course" value="Diploma" readonly required>
+            </div>
+            <div class="form-group">
+                <label for="semester">Semester:</label>
+                <select id="semester" required>
+                    <option value="" disabled selected>Select Semester</option>
+                    <option value="1">I</option>
+                    <option value="2">II</option>
+                    <option value="3">III</option>
+                    <option value="4">IV</option>
+                    <option value="5">V</option>
+                    <option value="6">VI</option>
+                </select>
+            </div>
+            <div class="form-group" style="grid-column: span 2;">
+                <label for="feedbackDate">Date of the feedback:</label>
+                <input type="date" id="feedbackDate" required>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 10px; color: #2c3e50;">For getting filled in through student</h3>
+        
+        <!-- Rating Matrix Table -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">S. No.</th>
+                        <th style="width: 52%;">Description</th>
+                        <th style="width: 8%;">Very Poor<br>(1)</th>
+                        <th style="width: 8%;">Poor<br>(2)</th>
+                        <th style="width: 8%;">Good<br>(3)</th>
+                        <th style="width: 8%;">Very Good<br>(4)</th>
+                        <th style="width: 8%;">Excellent<br>(5)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Q1 -->
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
+                        <td class="text-center"><input type="radio" name="q1" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q1" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q1" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q1" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q1" value="5"></td>
+                    </tr>
+                    <!-- Q2 -->
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td>Has the Teacher covered relevant topics beyond syllabus</td>
+                        <td class="text-center"><input type="radio" name="q2" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q2" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q2" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q2" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q2" value="5"></td>
+                    </tr>
+                    <!-- Q3 Header -->
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td colspan="6"><strong>Effectiveness of Teacher in terms of :</strong></td>
+                    </tr>
+                    <!-- Q3 a -->
+                    <tr>
+                        <td></td>
+                        <td class="sub-question">(a) Technical content/course content</td>
+                        <td class="text-center"><input type="radio" name="q3a" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q3a" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q3a" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q3a" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q3a" value="5"></td>
+                    </tr>
+                    <!-- Q3 b -->
+                    <tr>
+                        <td></td>
+                        <td class="sub-question">(b) Communication skills</td>
+                        <td class="text-center"><input type="radio" name="q3b" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q3b" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q3b" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q3b" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q3b" value="5"></td>
+                    </tr>
+                    <!-- Q3 c -->
+                    <tr>
+                        <td></td>
+                        <td class="sub-question">(c) Use of teaching aids</td>
+                        <td class="text-center"><input type="radio" name="q3c" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q3c" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q3c" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q3c" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q3c" value="5"></td>
+                    </tr>
+                    <!-- Q4 -->
+                    <tr>
+                        <td class="text-center">4</td>
+                        <td>Pace on which contents were covered</td>
+                        <td class="text-center"><input type="radio" name="q4" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q4" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q4" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q4" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q4" value="5"></td>
+                    </tr>
+                    <!-- Q5 --> 
+                    <tr>
+                        <td class="text-center">5</td>
+                        <td>Motivation and inspiration for students to learn</td>
+                        <td class="text-center"><input type="radio" name="q5" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q5" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q5" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q5" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q5" value="5"></td>
+                    </tr>
+                    <!-- Q6 -->
+                    <tr>
+                        <td class="text-center">6</td>
+                        <td>Encouragement of students to ask questions and participate in discussions <br> <hr>
+                         <span>(i) Practical Demonstration</span> </td>
+                        <td class="text-center"><input type="radio" name="q6" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q6" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q6" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q6" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q6" value="5"></td>

@@ -1,0 +1,139 @@
+/* From Uiverse.io by celso_3704 */ 
+.switch {
+  --width: 4em;
+  --height: 2.2em;
+  --padding: 0.18em;
+
+  --track-off: #074642;
+  --track-hover: #6dc40a;
+  --track-on: linear-gradient(135deg, #6366f1, #3b82f6);
+
+  --thumb-bg: linear-gradient(145deg, #ffffff, #eef3fb);
+  --thumb-color: #64748b;
+  --thumb-color-active: #2563eb;
+
+  --glow: rgba(59, 130, 246, 0.28);
+
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  font-size: 1rem;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 999em;
+  background: var(--track-off);
+
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  box-shadow:
+    inset 0 0.08em 0.2em rgba(255, 255, 255, 0.9),
+    inset 0 -0.08em 0.2em rgba(0, 0, 0, 0.05),
+    0 0.2em 0.5em rgba(0, 0, 0, 0.08);
+}
+
+.slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.45),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 255, 255, 0.18),
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+.slider::before {
+  content: "←";
+
+  position: absolute;
+  top: 50%;
+  left: var(--padding);
+
+  width: calc(var(--height) - 0.36em);
+  height: calc(var(--height) - 0.36em);
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--thumb-bg);
+  color: var(--thumb-color);
+
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1;
+
+  transition:
+    left 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.3s ease,
+    background 0.3s ease;
+
+  box-shadow:
+    0 0.18em 0.45em rgba(0, 0, 0, 0.16),
+    inset 0 0.08em 0.15em rgba(255, 255, 255, 0.95);
+}
+
+.switch:hover .slider {
+  background: var(--track-hover);
+}
+
+.switch:hover .slider::before {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.switch:active .slider::before {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.switch input:focus-visible + .slider {
+  box-shadow:
+    0 0 0 0.2em rgba(59, 130, 246, 0.22),
+    0 0.2em 0.6em rgba(0, 0, 0, 0.08);
+}
+
+.switch input:checked + .slider {
+  background: var(--track-on);
+
+  box-shadow:
+    0 0 0.9em var(--glow),
+    inset 0 0.08em 0.2em rgba(255, 255, 255, 0.25);
+}
+
+.switch input:checked + .slider::before {
+  content: "→";
+  left: calc(100% - var(--height) + var(--padding));
+  color: var(--thumb-color-active);
+}
+
+.switch:hover input:checked + .slider {
+  filter: brightness(1.05);
+}
+
+.switch:hover input:checked + .slider::before {
+  transform: translateY(-50%) scale(1.08);
+}

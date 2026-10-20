@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+<label class="switch">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 800px;
+            max-width: 100%;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #2563eb;
+        }
+
+        .feedback-title {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+
+        .rating-label {
+            width: 250px;
+            font-size: 15px;
+        }
+
+        .rating {
+            display: flex;
+            gap: 12px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .rating label:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .rating input:checked + label {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 25px auto 0;
+            padding: 13px 35px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 600px) {
+            .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .rating-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .rating-label {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Submit Feedback</h1>
+
+    <!-- Student Information -->
+    <div class="row">
+
+        <div class="input-group">
+            <label>Student ID *</label>
+            <input type="text" id="studentId" placeholder="Enter Student ID">
+        </div>
+
+        <div class="input-group">
+            <label>Role *</label>
+            <select id="role">
+                <option value="">Select Role</option>
+                <option>Student</option>
+                <option>Class Representative</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="input-group">
+            <label>Department/Class *</label>
+            <input type="text" id="department" placeholder="Enter Department / Class">
+        </div>
+
+        <div class="input-group">
+            <label>Feedback For *</label>
+            <input type="text" id="teacher" placeholder="Enter Teacher Name">
+        </div>
+
+    </div>
+
+
+    <!-- Feedback -->
+    <div class="feedback-title">
+        For Teachers
+    </div>
+
+
+    <!-- Teaching Effectiveness -->
+    <div class="rating-row">
+
+        <div class="rating-label">
+            Teaching Effectiveness
+        </div>
+
+        <div class="rating">
+
+            <input type="radio" name="teaching" id="t1" value="1">
+            <label for="t1">1</label>
+
+            <input type="radio" name="teaching" id="t2" value="2">
+            <label for="t2">2</label>
+
+            <input type="radio" name="teaching" id="t3" value="3">
+            <label for="t3">3</label>
+
+            <input type="radio" name="teaching" id="t4" value="4">
+            <label for="t4">4</label>
+
+            <input type="radio" name="teaching" id="t5" value="5">
+            <label for="t5">5</label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Communication Skill -->
+    <div class="rating-row">
+
+        <div class="rating-label">
+            Communication Skill
+        </div>
+
+        <div class="rating">
+
+            <input type="radio" name="communication" id="c1" value="1">
+            <label for="c1">1</label>
+
+            <input type="radio" name="communication" id="c2" value="2">
+            <label for="c2">2</label>
+
+            <input type="radio" name="communication" id="c3" value="3">
+            <label for="c3">3</label>
+
+            <input type="radio" name="communication" id="c4" value="4">
+            <label for="c4">4</label>
+
+            <input type="radio" name="communication" id="c5" value="5">
+            <label for="c5">5</label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Classroom Support -->
+    <div class="rating-row">
+
+        <div class="rating-label">
+            Classroom Support
+        </div>
+
+        <div class="rating">
+
+            <input type="radio" name="support" id="s1" value="1">
+            <label for="s1">1</label>
+
+            <input type="radio" name="support" id="s2" value="2">
+            <label for="s2">2</label>
+
+            <input type="radio" name="support" id="s3" value="3">
+            <label for="s3">3</label>
+
+            <input type="radio" name="support" id="s4" value="4">
+            <label for="s4">4</label>
+
+            <input type="radio" name="support" id="s5" value="5">
+            <label for="s5">5</label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Professional Growth -->
+    <div class="rating-row">
+
+        <div class="rating-label">
+            Professional Growth
+        </div>
+
+        <div class="rating">
+
+            <input type="radio" name="growth" id="g1" value="1">
+            <label for="g1">1</label>
+
+            <input type="radio" name="growth" id="g2" value="2">
+            <label for="g2">2</label>
+
+            <input type="radio" name="growth" id="g3" value="3">
+            <label for="g3">3</label>
+
+            <input type="radio" name="growth" id="g4" value="4">
+            <label for="g4">4</label>
+
+            <input type="radio" name="growth" id="g5" value="5">
+            <label for="g5">5</label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Suggestion -->
+    <div class="input-group" style="margin-top: 25px;">
+
+        <label>Suggest Your Observation *</label>
+
+        <textarea id="suggestion"
+            placeholder="Write your feedback or suggestion..."></textarea>
+
+    </div>
+
+
+    <button class="submit-btn" onclick="submitFeedback()">
+        Submit Feedback
+    </button>
+
+</div>
+
+
+<script>
+
+function submitFeedback() {
+
+    let studentId = document.getElementById("studentId").value;
+    let role = document.getElementById("role").value;
+    let department = document.getElementById("department").value;
+    let teacher = document.getElementById("teacher").value;
+    let suggestion = document.getElementById("suggestion").value;
+
+    if (studentId === "" ||
+        role === "" ||
+        department === "" ||
+        teacher === "" ||
+        suggestion === "") {
+
+        alert("Please fill all required fields.");
+        return;
+    }
+
+    alert("Feedback submitted successfully!");
+
+}
+
+</script>
+
+</body>
+</html>
+</body>
+</html>
+

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICTE 360 Degree Feedback System</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --text-dark: #1f2937;
+            --bg-light: #f8fafc;
+            --border: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 30px 10px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .top-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 26px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 15px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .section-title {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 700;
+            padding: 8px 12px;
+            margin: 30px 0 15px 0;
+            border-left: 5px solid var(--primary);
+            text-transform: uppercase;
+        }
+
+        .faculty-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 25px;
+            background: var(--bg-light);
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field-group label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #334155;
+        }
+
+        .field-group input, .field-group select {
+            padding: 9px 12px;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        .field-group input:focus, .field-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        table, th, td {
+            border: 1px solid #94a3b8;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #0f172a;
+            padding: 10px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .radio-cell {
+            text-align: center;
+            width: 9%;
+        }
+
+        .radio-cell input {
+            width: 17px;
+            height: 17px;
+            cursor: pointer;
+        }
+
+        .input-inline {
+            width: 90%;
+            padding: 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 3px;
+            font-size: 13px;
+            box-sizing: border-box;
+        }
+
+        .summary-table th {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .summary-table input[type="number"] {
+            width: 100px;
+            padding: 6px;
+            text-align: center;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background-color: #e2e8f0;
+        }
+
+        .footer-signatures {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-top: 1px dashed var(--border);
+            padding-top: 30px;
+        }
+
+        .authority-block {
+            text-align: right;
+            font-size: 14px;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .digital-signature {
+            border: 1px solid #22c55e;
+            background-color: #f0fdf4;
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            text-align: left;
+            font-family: monospace;
+            font-size: 11px;
+            color: #166534;
+        }
+
+        .digital-title {
+            font-weight: bold;
+            color: #15803d;
+            margin-bottom: 3px;
+            font-family: sans-serif;
+            font-size: 12px;
+        }
+
+        .btn-container {
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #172554;
+        }
+
+        .gazette-footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 11px;
+            color: #64748b;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Gazette Top Bar Header -->
+    <div class="top-meta">
+        <div>[ भाग III—खण्ड 4 ]</div>
+        <div>भारत का राजपत्र : असाधारण</div>
+        <div>39</div>
+    </div>
+
+    <div class="header">
+        <h1>STUDENT'S FEEDBACK FORM</h1>
+        <p>(To be used by institutions for 360° Faculty Feedback System)</p>
+    </div>
+
+    <!-- Metadata Fields Grid -->
+    <div class="faculty-info-grid">
+        <div class="field-group">
+            <label for="academic-year">Academic Year</label>
+            <input type="text" id="academic-year" placeholder="e.g., 2026-27">
+        </div>
+        <div class="field-group">
+            <label for="faculty-name">Name of the Faculty</label>
+            <input type="text" id="faculty-name" placeholder="Enter Full Name">
+        </div>
+        <div class="field-group">
+            <label for="course">Course</label>
+            <input type="text" id="course" placeholder="e.g., Diploma / B.Tech / MCA">
+        </div>
+        <div class="field-group">
+            <label for="semester">Semester</label>
+            <select id="semester">
+                <option value="">-- Select Semester --</option>
+                <option value="Odd">Odd Semester</option>
+                <option value="Even">Even Semester</option>
+            </select>
+        </div>
+        <div class="field-group" style="grid-column: span 2;">
+            <label for="feedback-date">Date of the feedback</label>
+            <input type="date" id="feedback-date">
+        </div>
+    </div>
+
+    <!-- Section F: Contribution to Society Table -->
+    <div class="section-title">F. Contribution to Society (Maximum Points 10)</div>
+    <table>
+        <thead>
+            <tr>
+                <th class="text-center" style="width: 8%;">S. No.</th>
+                <th style="width: 20%;">Semester</th>
+                <th style="width: 32%;">Activity</th>
+                <th style="width: 15%;">Credit Point</th>
+                <th style="width: 15%;">Criteria</th>
+                <th style="width: 10%;">Enclosure no.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td><input type="text" class="input-inline" placeholder="e.g., Sem III"></td>
+                <td><input type="text" class="input-inline" placeholder="e.g., NSS / Swachh Bharat"></td>
+                <td><input type="text" class="input-inline" placeholder="Credit"></td>
+                <td><input type="text" class="input-inline" placeholder="Criteria"></td>
+                <td><input type="text" class="input-inline" placeholder="E-1"></td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td><input type="text" class="input-inline" placeholder="e.g., Sem IV"></td>
+                <td><input type="text" class="input-inline" placeholder="e.g., Community Development"></td>
+                <td><input type="text" class="input-inline" placeholder="Credit"></td>
+                <td><input type="text" class="input-inline" placeholder="Criteria"></td>
+                <td><input type="text" class="input-inline" placeholder="E-2"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Main Student Feedback Table (9 Parameters) -->
+    <div class="section-title">For getting filled in through student</div>
+    <table id="feedback-matrix">
+        <thead>
+            <tr>
+                <th class="text-center" style="width: 6%;" rowspan="2">S. No.</th>
+                <th style="width: 49%;" rowspan="2">Description</th>
+                <th class="text-center" style="width: 9%;">Very Poor</th>
+                <th class="text-center" style="width: 9%;">Poor</th>
+                <th class="text-center" style="width: 9%;">Average</th>
+                <th class="text-center" style="width: 9%;">Good</th>
+                <th class="text-center" style="width: 9%;">Excellent</th>
+            </tr>
+            <tr>
+                <th class="text-center">(1)</th>
+                <th class="text-center">(2)</th>
+                <th class="text-center">(3)</th>
+                <th class="text-center">(4)</th>
+                <th class="text-center">(5)</th>
+            </tr>
+        </thead>   
+
+    </table>
+    <div class="btn-container">
+        <button class="btn" id="submit-feedback">Submit Feedback</button>
+    </div>
+ </div>
+</body>
+</html>
