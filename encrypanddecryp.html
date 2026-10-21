@@ -3,60 +3,8 @@
 <html>
 <head>
     <title>Encryption and Decryption</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            background: #36383b;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .container {
-            background: #7d8897;
-            max-width: 400px;
-            margin: auto;
-            padding: 25px;
-            border-radius: 10px;
-        }
-
-        textarea {
-            width: 90%;
-            height: 100px;
-            padding: 10px;
-            border-radius: 15px;
-            margin: 10px;
-        }
-
-        input {
-            width: 85%;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 15px;
-        }
-
-        button {
-            padding: 10px 15px;
-            margin: 8px;
-            border: none;
-            border-radius: 15px;
-            background: #2563eb;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #1e40af;
-        }
-
-        #result {
-            font-weight: bold;
-            color: green;
-            overflow-wrap: anywhere;
-        }
-    </style>
+    <link rel="stylesheet" href="style2.css">
 </head>
-
 <body>
 
     <div class="container">
@@ -77,35 +25,6 @@
         <h3>Result:</h3>
         <p id="result"></p>
     </div>
-
-    <script>
-        function transformText(direction) {
-            let text = document.getElementById("text").value;
-            let key = Number(document.getElementById("key").value);
-
-            if (document.getElementById("key").value.trim() === "" || !Number.isInteger(key)) {
-                document.getElementById("result").innerText = "Please enter a whole-number key.";
-                return;
-            }
-
-            let result = "";
-
-            for (let i = 0; i < text.length; i++) {
-                result += String.fromCharCode(text.charCodeAt(i)+6*direction);
-            }
-
-            document.getElementById("result").innerText = result;
-        }
-           function encrypt() {
-            transformText(1);
-        }
-
-        function decrypt() {
-            transformText(-1);
-        }
-
-     
-    </script>
-
+    <link rel="script" src="script.js">
 </body>
 </html>
