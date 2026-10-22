@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Feedback Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>360° Feedback</h2>
+    <p class="menu-title">ADMIN MENU</p>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#feedback">Feedback Records</a>
+    <a href="#students">Students</a>
+</div>
+
+<div class="main">
+    <header>
+        <div>
+            <h1>Admin Dashboard</h1>
+            <p>Manage student feedback</p>
+        </div>
+        <div class="admin">Admin</div>
+    </header>
+
+    <section class="cards" id="dashboard">
+        <div class="card">
+            <p>Total Students</p>
+            <h2 id="studentCount">4</h2>
+        </div>
+        <div class="card">
+            <p>Total Feedback</p>
+            <h2 id="feedbackCount">4</h2>
+        </div>
+        <div class="card">
+            <p>Average Rating</p>
+            <h2 id="averageRating">4.3/5</h2>
+        </div>
+    </section>
+
+    <section class="content" id="feedback">
+        <h2>Student Feedback Records</h2>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search student name..."
+        >
+
+        <div class="table-box" id="students">
+            <table>
+               
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Semester</th>
+            <th>Subject</th>
+            <th>Faculty</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Feedback</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in feedbacks %}
+        <tr>
+            <td>{{ item.academicyear }}</td>
+            <td>{{ item.semester }}</td>
+            <td>{{ item.subject }}</td>
+            <td>{{ item.faculty }}</td>
+            <td>{{ item.course }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.feedback }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No feedback available</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+            </table>
+        </div>
+    </section>
+
+    <footer>360° Feedback System | Admin Panel</footer>
+</div>
+
+<script src="script1.js"></script>
+</body>
+</html>
