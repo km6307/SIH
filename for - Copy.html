@@ -324,3 +324,30 @@
                         <td class="text-center"><input type="radio" name="q6" value="3"></td>
                         <td class="text-center"><input type="radio" name="q6" value="4"></td>
                         <td class="text-center"><input type="radio" name="q6" value="5"></td>
+                    </tr>
+                    <!-- Q6 ii -->
+                    <tr>
+                        <td></td>
+                        <td class="sub-question">(ii) Problem Solving</td>
+                        <td class="text-center"><input type="radio" name="q6ii" value="1" required></td>
+                        <td class="text-center"><input type="radio" name="q6ii" value="2"></td>
+                        <td class="text-center"><input type="radio" name="q6ii" value="3"></td>
+                        <td class="text-center"><input type="radio" name="q6ii" value="4"></td>
+                        <td class="text-center"><input type="radio" name="q6ii" value="5"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <div class="btn-container">
+        <button type="submit">Submit Feedback</button>
+    </div>
+    </form>
+    </div>
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            submitFeedback();
+        });
+    </script>
+ <body>
+</html>
