@@ -25,6 +25,28 @@
         <h3>Result:</h3>
         <p id="result"></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        function encrypt() {
+            const text = document.getElementById('text').value;
+            const key = parseInt(document.getElementById('key').value);
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+                const charCode = text.charCodeAt(i);
+                result += String.fromCharCode(charCode + key);
+            }
+            document.getElementById('result').innerText = result;
+        }
+
+        function decrypt() {
+            const text = document.getElementById('text').value;
+            const key = parseInt(document.getElementById('key').value);
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+                const charCode = text.charCodeAt(i);
+                result += String.fromCharCode(charCode - key);
+            }
+            document.getElementById('result').innerText = result;
+        }
+    </script>
 </body>
 </html>

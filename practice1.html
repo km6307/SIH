@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice 1</title>
-    {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
     <style>
         * {
             margin: 0;
@@ -14,27 +13,47 @@
         body {
               background-color: #918b8b;
         }
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #CFC6B1;
+            padding: 10px 20px;
+            border-radius:10px;
+        }
+        
         .logo h1 {
-            color: #333;
+            color: #f3ecec;
             font-size: 24px;
+            width: 300px;
         }
         .logo {
             display: flex;
             align-items: center;
         }
+        #nav-links {
+            list-style: none;
+            display: flex;
+            gap:50px;
+            font-color: #f3ecec;
+            font-weight: bold;
+            
+        }
+        </style>
 
 </head>
 <body>  
-    <nav>
-        <div class="logo">
-            <h1>My Website</h1>
-        </div>
-        <ul>
+  <nav>
+        <div id="navbar">
+          <div class="logo">
+              <h1>My Website</h1>
+          </div>
+          <ul id="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Login</a></li>
-         </ul>
+            <li style="padding-right:40px;"><a href="#">Login</a></li>
+          </ul>
         </div>
-    </nav>
+  </nav>
