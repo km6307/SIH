@@ -224,6 +224,102 @@
             color: #f8fafc;
         }
 
+        .site-footer {
+            background: rgba(2, 6, 23, 0.96);
+            border-top: 1px solid rgba(148, 163, 184, 0.18);
+            margin-top: 60px;
+            padding: 48px 20px 22px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.2fr;
+            gap: 30px;
+        }
+
+        .footer-brand h3 {
+            margin: 0 0 12px;
+            font-size: 1.8rem;
+            color: #ffffff;
+            letter-spacing: 0.04em;
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #08111d;
+            font-weight: 900;
+            margin-right: 12px;
+        }
+
+        .footer-brand {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        .footer-brand .brand-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-column h4 {
+            margin: 0 0 18px;
+            color: #ffffff;
+            font-size: 1.05rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .footer-links,
+        .footer-details {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: var(--muted);
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-links a,
+        .footer-details span {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-details strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(148, 163, 184, 0.15);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
         @media (max-width: 600px) {
             #navbar {
                 padding: 18px 20px;
@@ -282,27 +378,46 @@
             <p id="result">Your encrypted or decrypted text will appear here.</p>
         </div>
     </div>
-    <hr>
-    <footer>
-        <p style="text-align:center; padding: 20px 0; color: var(--muted); font-size: 0.9rem;">
-            &copy; 2024 CipherNest. All rights reserved.
-        </p>
-        <p style="text-align:center; padding: 0 20px 20px; color: var(--muted); font-size: 0.85rem;">
-            1. This tool uses a simple Caesar cipher for demonstration purposes. It is not secure for sensitive information.
-            <br>
-            2. Always use strong encryption methods for real-world applications.
-        </p>
-        <hr style="border: 0; border-top: 1px solid rgba(148, 163, 184, 0.2); margin: 20px 0;">
-        <h1 style="text-align:center; color: var(--muted); font-size: 2rem;">
-            CREATED BY:
-        </h1>
-        <p style="padding-left:40px; color: var(--muted); font-size: 1.05rem;">
-            <span>NAME: </span> <span style="color: var(--primary);">KRISHNA MURARI MISHRA</span> <br>
-            <span>EMAIL: </span> <span style="color: var(--primary);">kmmishraXXXX@gmail.com</span><br>
-            <span>PHONE: </span> <span style="color: var(--primary);">+91 XXXXXX2465</span>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="brand-row">
+                    <span class="brand-mark">C</span>
+                    <h3>CipherNest</h3>
+                </div>
+                <p>
+                    A secure, modern encryption platform built to demonstrate Caesar cipher logic
+                    in a clean and user-friendly interface.
+                </p>
+            </div>
 
-        </p>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
 
+            <div class="footer-column">
+                <h4>Created By</h4>
+                <ul class="footer-details">
+                    <li><strong>Name:</strong> <span>Krishna Murari Mishra</span></li>
+                    <li><strong>Email:</strong> <span>kmmishraXXXX@gmail.com</span></li>
+                    <li><strong>Phone:</strong> <span>+91 XXXXXX2465</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 CipherNest. All rights reserved.</p>
+            <p>
+                1. This tool uses a simple Caesar cipher for demonstration purposes.<br>
+                2. Always use strong encryption methods for real-world applications.
+            </p>
+        </div>
     </footer>
     <script>
         function encrypt() {
