@@ -221,8 +221,19 @@
       transform: translateY(-1px);
     }
 
+    .upload-box {
+      position: relative;
+      display: block;
+    }
+
     .upload-box input {
-      display: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 1;
     }
 
     .upload-icon {
@@ -434,6 +445,15 @@
       renderFiles();
       statusEl.textContent = `${selectedFiles.length} file(s) selected.`;
     }
+
+    uploadBox.addEventListener('click', (event) => {
+      const clickedButton = event.target.closest('.primary-btn');
+      const clickedUploadArea = event.target === uploadBox || event.target.closest('.upload-icon') || event.target.closest('p');
+
+      if (clickedButton || clickedUploadArea) {
+        fileInput.click();
+      }
+    });
 
     fileInput.addEventListener('change', handleSelection);
 
