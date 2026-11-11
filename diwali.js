@@ -102,8 +102,8 @@
         for (let i = 0; i < 8; i++) setTimeout(() => launch(), i * 220);
       });
 
-      // ---------- Countdown (Lakshmi Puja: 8 Nov 2026) ----------
-      const target = new Date("2026-11-08T18:00:00+05:30").getTime();
+      // ---------- Countdown (Lakshmi Puja: 29 Oct 2027) ----------
+      const target = new Date("2027-10-29T18:00:00+05:30").getTime();
       const pad = (n) => String(n).padStart(2, "0");
 
       function tick() {
